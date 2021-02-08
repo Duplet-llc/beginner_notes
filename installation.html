@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Duplet Guide</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="ihp-logo.svg"/>
+    <link rel="stylesheet" href="bootstrap.css" crossorigin="anonymous"/>
+  </head>
+  <body class="d-flex">
+        <nav class="navbar  navbar-light" id="mobile-navbar">
+            <a class="navbar-brand" href="#">
+                <span class="nav-logo">
+                    <span class="nav-logo-lambda">Best Practices Spec</span>
+                    <span class="nav-logo-name">Duplet</span>
+                </span>
+            </a>
+            <button class="navbar-toggler" type="button" onclick="document.querySelector('.nav-column').classList.toggle('visible')">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+
+        <div class="text-right nav-column navbar-collapse">
+            <div class="nav-logo">
+                <div class="nav-logo-lambda">Best Practices Spec</div>
+                <div class="nav-logo-name">Duplet</div>
+            </div>
+            <form action="https://duckduckgo.com" method="GET" class="search-docs-form">
+                <div class="search-docs input-group input-group-sm">
+
+                    <input type="hidden" name="sites" value="https://ihp.digitallyinduced.com"/>
+                    <input type="text" id="search-docs-input" class="form-control" name="q" placeholder="Search IHP">
+                    <div class="input-group-append">
+                        <button id="search-btn" class="btn btn-outline-secondary btn-sm" type="submit">🔎</button>
+                    </div>
+                </div>
+            </form>
+
+            <nav class="nav flex-column primary-nav">
+                <a class="nav-link headline" href="index.html">Getting Started</a>
+                <a class="nav-link secondary" href="index.html">Intro</a>
+                <a class="nav-link secondary" href="installation.html">Installing IHP</a>
+                <a class="nav-link secondary" href="your-first-project.html">Your First Project</a>
+
+                <a class="nav-link headline" href="architecture.html">The Basics</a>
+                <a class="nav-link secondary" href="architecture.html">Architecture</a>
+                <a class="nav-link secondary" href="naming-conventions.html">Naming Conventions</a>
+                <a class="nav-link secondary" href="routing.html">Routing</a>
+                <a class="nav-link secondary" href="controller.html">Controller & Actions</a>
+                <a class="nav-link secondary" href="view.html">Views</a>
+                <a class="nav-link secondary" href="hsx.html">HSX</a>
+                <a class="nav-link secondary" href="form.html">Forms</a>
+                <a class="nav-link secondary" href="validation.html">Validation</a>
+                <a class="nav-link secondary" href="session.html">Session</a>
+                <a class="nav-link secondary" href="javascript:alert('This cookie section is not ready yet')">Cookies</a>
+                <a class="nav-link secondary" href="scripts.html">Scripts</a>
+                <a class="nav-link secondary" href="debugging.html">Debugging</a>
+                <a class="nav-link secondary" href="logging.html">Logging</a>
+                <a class="nav-link secondary" href="testing.html">Testing</a>
+
+                <a class="nav-link secondary" href="editors.html">Editors & Tooling</a>
+
+
+
+                <a class="nav-link headline" href="mail.html">Advanced</a>
+                <a class="nav-link secondary" href="mail.html">Sending Mail</a>
+                <a class="nav-link secondary" href="jobs.html">Jobs</a>
+                <a class="nav-link secondary" href="updating.html">Updating IHP</a>
+                <a class="nav-link secondary" href="auto-refresh.html">Auto Refresh</a>
+                <a class="nav-link secondary" href="package-management.html">Package Management</a>
+                <a class="nav-link secondary" href="deployment.html">Deployment</a>
+                <a class="nav-link secondary" href="design-goals.html">IHP Design Goals</a>
+
+
+                <a class="nav-link headline" href="tailwindcss.html">Frontend</a>
+                <a class="nav-link secondary" href="tailwindcss.html">Tailwind CSS</a>
+                <a class="nav-link secondary" href="elm.html">Elm</a>
+                <a class="nav-link secondary" href="purescript.html">PureScript</a>
+                <a class="nav-link secondary" href="modal.html">Modal</a>
+                <a class="nav-link secondary" href="npm.html">Using NPM</a>
+                <a class="nav-link secondary" href="javascript:alert('The frontend section is coming soon')">Static Assets</a>
+                <a class="nav-link secondary" href="javascript:alert('The frontend section is coming soon')">Form Customization</a>
+
+                <a class="nav-link headline" href="database.html">Database</a>
+                <a class="nav-link secondary" href="database.html">Basics</a>
+                <a class="nav-link secondary" href="relationships.html">Relationships</a>
+                <a class="nav-link secondary" href="querybuilder.html">Query Builder</a>
+                <a class="nav-link secondary" href="database-migrations.html">Migrations</a>
+
+
+                <a class="nav-link headline" href="authentication.html">Auth</a>
+                <a class="nav-link secondary" href="authentication.html">Login & Logout</a>
+                <a class="nav-link secondary" href="authorization.html">Authorization</a>
+
+                <a class="nav-link headline" href="recipes.html">Recipes</a>
+                <a class="nav-link headline" href="troubleshooting.html">Troubleshooting</a>
+                <a class="nav-link headline" href="#">LINKS</a>
+                <a class="nav-link" href="https://github.com/digitallyinduced/ihp" target="_blank">GitHub</a>
+               
+                <a class="nav-link" href="https://ihp.digitallyinduced.com/api-docs/" target="_blank">API Docs</a>
+
+                <div class="mt-2">
+                    <a class="github-button" href="https://github.com/digitallyinduced/ihp" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" data-show-count="true" aria-label="Star digitallyinduced/ihp on GitHub">Star</a>
+                </div>
+            </nav>
+        </div>
+        <main>
+            <h1 id="installing-ihp">Installing Duplet</h1>
+<ul>
+<li>
+<a href="#1-dependency-nix-package-manager">1. Dependency: Nix Package Manager</a>
+<ul>
+<li>
+<a href="#mac">Mac</a>
+
+
+</li>
+<li>
+<a href="#linux">Linux</a>
+</li>
+<li>
+<a href="#windows">Windows</a>
+<ul>
+<li>
+<a href="#windows-firewall">Windows Firewall</a>
+</li>
+</ul>
+</li>
+</li>
+</ul>
+<li>
+<a href="#2-installing-ihp">2. Installing IHP</a>
+<ul>
+<li>
+<a href="#nixos-specific">NixOS specific</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#3-next">3. Next</a>
+</li>
+</ul>
+<h2 id="1-dependency-nix-package-manager">1. Dependency: Nix Package Manager</h2>
+<p>The framework uses the nix package manager to manage the whole set of dependencies of your application</p>
+<p>For example, PostgreSQL and the Haskell compiler are both dependencies of your app, as well as all the Haskell or JavaScript packages you want to use. We use nix to make sure that these dependencies are available to the app - in development, as well as in production.</p>
+<p>That’s why we first need to make sure that you have nix installed.</p>
+<h3 id="mac">Mac</h3>
+<p>Run this command in your terminal to install nix on your machine.</p>
+<div class="source-code"><pre><code class="language-bash"><span class="fu">sh</span><span> </span><span class="op">&lt;(</span><span class="ex">curl</span><span> </span><span class="at">-L</span><span> https://nixos.org/nix/install</span><span class="op">)</span><span> </span><span class="at">--darwin-use-unencrypted-nix-store-volume</span>
+</code></pre></div>
+<p>After this restart your terminal.</p>
+<p>If you get an error like <code>error: refusing to create Nix store volume because the boot volume is FileVault encrypted, but encryption-at-rest is not available.</code>, follow the steps described <a href="https://github.com/digitallyinduced/ihp/issues/93#issuecomment-639611313">in this GitHub Issue</a>. We’re working on improving this step.</p>
+<h3 id="linux">Linux</h3>
+<p>Before installing nix and IHP, you need <code>curl</code> and <code>git</code> if you don’t have them already. If you are unsure, run this:</p>
+<div class="source-code"><pre><code class="language-bash"><span class="fu">sudo</span><span> apt update</span>
+<span class="fu">sudo</span><span> apt upgrade</span>
+<span class="fu">sudo</span><span> apt install git curl make </span><span class="at">-y</span>
+</code></pre></div>
+<p><strong>For NixOS Users:</strong> If you’re on NixOS, of course you don’t need to install nix anymore :-) Just skip this step.</p>
+<p>Install nix by running the following command in your shell and follow the instructions on the screen:</p>
+<div class="source-code"><pre><code class="language-bash"><span class="ex">curl</span><span> </span><span class="at">-L</span><span> https://nixos.org/nix/install </span><span class="kw">|</span><span> </span><span class="fu">sh</span>
+</code></pre></div>
+<p>Due to Linux not loading the <code>.profile</code> file, nix will not be loaded. To fix that, we need to add this line to the rc file of your shell (usually <code>.bashrc</code>). Open it, and add this line</p>
+<div class="source-code"><pre><code class="language-bash"><span class="bu">.</span><span> ~/.nix-profile/etc/profile.d/nix.sh</span>
+</code></pre></div>
+<p>There are also other ways to install nix, <a href="https://nixos.org/nix/download.html">take a look at the documentation</a>.</p>
+<h3 id="windows">Windows</h3>
+<p>Running nix on Windows requires the Windows Subsystem for Linux, which first needs manual activation via <strong>Powershell with Administrator Privileges</strong>:</p>
+<div class="source-code"><pre><code class="language-bash"><span class="ex">dism.exe</span><span> /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</span>
+</code></pre></div>
+<p>Enabling this Feature needs a restart (even though it won’t prompt, and the command-line says /norestart).</p>
+<p>To download a Linux Distribution, open the Microsoft Store and search for Ubuntu or Debian. We recommend Ubuntu since it works best with nix on Windows.</p>
+<p>Note: You <strong>do not</strong> need a Microsoft account to download. You can simply cancel or close the login forms and the download will continue.</p>
+<p>If this is your first time installing WSL and you are encountering problems, rest assured most issues are well-known and solutions can be found online by searching the web for the error messages.</p>
+<p>With the Distro downloaded, run it and update it using your package manager. In Ubuntu you would use:</p>
+<div class="source-code"><pre><code class="language-bash"><span class="fu">sudo</span><span> apt update</span>
+<span class="fu">sudo</span><span> apt upgrade</span>
+<span class="fu">sudo</span><span> apt install git curl make xdg-utils </span><span class="at">-y</span>
+</code></pre></div>
+<p>WSL will add your Windows System Paths in your Linux Subsystem. These tend to generate errors due to spaces and brackets in folder names. Also, due to Linux not loading the <code>.profile</code>, we need to add the nix.sh manually. To fix these two issues, just add these lines to the end of your <code>.bashrc</code></p>
+<div class="source-code"><pre><code class="language-bash"><span class="va">PATH=$(</span><span class="ex">/usr/bin/printenv</span><span> PATH </span><span class="kw">|</span><span> </span><span class="ex">/usr/bin/perl</span><span> </span><span class="at">-ne</span><span> </span><span class="st">&#39;print join(&quot;:&quot;, grep { !/\/mnt\/[a-z]/ } split(/:/));&#39;</span><span class="va">)</span>
+<span class="bu">.</span><span> ~/.nix-profile/etc/profile.d/nix.sh</span>
+</code></pre></div>
+<p>Now, create a folder for nix:</p>
+<div class="source-code"><pre><code class="language-bash"><span class="fu">sudo</span><span> mkdir </span><span class="at">-p</span><span> /etc/nix</span>
+</code></pre></div>
+<p>To make nix usable on Windows, we need to create and add the following lines to the file <code>/etc/nix/nix.conf</code> (requires use of sudo again):</p>
+<div class="source-code"><pre><code class="language-bash"><span class="ex">sandbox</span><span> = false</span>
+<span class="ex">use-sqlite-wal</span><span> = false</span>
+</code></pre></div>
+<p>After saving the file, you can now install nix:</p>
+<div class="source-code"><pre><code class="language-bash"><span class="ex">curl</span><span> </span><span class="at">-L</span><span> https://nixos.org/nix/install </span><span class="kw">|</span><span> </span><span class="fu">sh</span>
+</code></pre></div>
+<p>When the installation finishes successfully, you will be prompted to either reload your environment with the given command, or restart your shell.</p>
+<p>If in doubt, just close and reopen Ubuntu/Your Distro.</p>
+<p><strong>NOTES FOR WINDOWS USERS</strong>:</p>
+<h6 id="windows-firewall">Windows Firewall</h6>
+<p>When using Windows, you will be asked if tasks like ghc-iserv or rundevserver should be allowed by the firewall. This is needed to access the devserver interface and the web application itself.</p>
+<p>Installing nix for IHP was done using <a href="https://nathan.gs/2019/04/12/nix-on-windows/">this guide</a>.</p>
+<p>Note that nix can gradually grow to use several GB of disk space, especially after upgrading IHP. You can always run <code>nix-collect-garbage</code> in a <code>nix-shell</code> which will delete older/unused files.</p>
+<h2 id="2-installing-ihp">2. Installing IHP</h2>
+<p>You can now install IHP by running:</p>
+<div class="source-code"><pre><code class="language-bash"><span class="ex">nix-env</span><span> </span><span class="at">-f</span><span> https://ihp.digitallyinduced.com/ihp-new.tar.gz </span><span class="at">-i</span><span> ihp-new</span>
+</code></pre></div>
+<h4 id="nixos-specific">NixOS specific</h4>
+<p>If you get the following error during this step on NixOS:</p>
+<div class="source-code"><pre><code class="language-bash"><span class="ex">MustBeRoot</span><span> </span><span class="st">&quot;Run command as root OR execute: $ echo </span><span class="dt">\&quot;</span><span class="st">trusted-users = root </span><span class="va">$USER</span><span class="dt">\&quot;</span><span class="st"> | sudo tee -a /etc/nix/nix.conf &amp;&amp; sudo pkill nix-daemon&quot;</span>
+</code></pre></div>
+<p>You have to add this to your NixOS configuration:</p>
+<div class="source-code"><pre><code class="language-bash"><span class="ex">nix.trustedUsers</span><span> = [ </span><span class="st">&quot;root&quot;</span><span> </span><span class="st">&quot;USERNAME_HERE&quot;</span><span> ]</span><span class="kw">;</span>
+</code></pre></div>
+<p><a href="https://github.com/NixOS/nixpkgs/blob/db31e48c5c8d99dcaf4e5883a96181f6ac4ad6f6/nixos/modules/services/misc/nix-daemon.nix#L319">See the documentation for <code>nix.trustedUsers</code> to learn more about what this is doing</a>.</p>
+<h2 id="3-next">3. Next</h2>
+<p>It’s time to start your first “hello world” project now :)</p>
+<p><a href="https://ihp.digitallyinduced.com/Guide/your-first-project.html">Next: Your First Project</a></p>
+
+        </main>
+
+
+
+    <style>
+        html, body {
+            min-height: 100%;
+            color: #073642;
+        }
+
+        * {
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            scroll-behavior: smooth;
+        }
+
+        .nav-logo-lambda, .nav-logo-name {
+            display: inline-block;
+        }
+
+        .nav-logo-lambda {
+            font-size: 4rem;
+            font-weight: 600;
+        }
+
+        .nav-logo-name {
+            font-size: 2rem;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            color: #073642;
+        }
+
+        .nav-column {
+            background-color: hsla(192, 81%, 5%, 0.04);
+            padding-top: 2rem;
+            position: sticky;
+            height: 100vh;
+            top: 0;
+        }
+
+        main {
+            padding: 1rem;
+            width: 100%;
+            margin-top: 70px;
+        }
+
+        .primary-nav .nav-link {
+            font-size: 12px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-right: 0;
+            transition: all 0.05s;
+        }
+
+        .primary-nav .nav-link.headline {
+            font-weight: 700;
+            color: #073642;
+            text-transform: uppercase;
+            margin-top: 20px;
+
+        }
+
+        .primary-nav .nav-link.secondary {
+            font-weight: 500;
+            color: hsla(192, 81%, 26%, 0.8);
+            text-transform: initial;
+        }
+
+        .primary-nav .nav-link.secondary:hover {
+            color: #073642;
+        }
+
+        .primary-nav .nav-link.secondary.active {
+            color: #268BD2;
+        }
+
+        a {
+            color: hsla(192, 81%, 26%, 1);
+        }
+
+        h1, h2, h3, h4, h5 { color: #073642; }
+
+        .source-code {
+          background-color: #002b36;
+
+          border-radius: 3px;
+        }
+        .language-haskell, .language-bash, .language-sql, .language-html, .language-nix, .language-css, .language-javascript, .language-makefile {
+          color: #839496 !important;
+          display: block;
+          padding: 1rem;
+        }
+
+        code {
+          background-color: rgba(0, 43, 54, 0.11);
+          color: #002b36 !important;
+        }
+
+        code .cr {
+          color: #93a1a1 !important;
+          font-weight: bold;
+        }
+
+        code .kw, code .kw, code .kw { color: #859900; }
+        code .st { color: #2aa198; }
+
+        pre { overflow: scroll; }
+
+        img { max-width: 100%; }
+
+        /* TOC */
+        main > h1 + ul { padding-left: 0; list-style: none; padding-left: 0; }
+        main > h1 + ul a {
+            color: #839496;
+            font-size: 12px;
+        }
+
+        main h2, main h3, main h4 { margin-top: 4rem; }
+        main h2 + h3 { margin-top: 0 }
+
+        #mobile-navbar {
+            position: absolute;
+            width: 100%;
+        }
+
+        .nav-column {
+            display: none;
+            transition: all 0.2s;
+            padding-right: 20px;
+            overflow-y: scroll;
+        }
+        .nav-column.visible {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: fit-content;
+            margin-top: 70px;
+            padding-top: 0;
+        }
+        .nav-column.visible, #mobile-navbar {
+            background-color: #f5f6f6;
+        }
+        .nav-column.visible .nav-logo { display: none }
+
+        #mobile-navbar .nav-logo .nav-logo-lambda { font-size: 2rem; }
+        #mobile-navbar .nav-logo .nav-logo-name { font-size: 1rem; }
+
+        @media (min-width: 768px) {
+            #mobile-navbar { display: none }
+            .nav-column {
+                display: block;
+                width: 25%;
+                max-width: 25%;
+                padding-right: 4rem;
+            }
+
+            main {
+                width: 75%;
+                max-width: 800px;
+                padding: 4rem;
+            }
+        }
+
+        summary h3 { vertical-align: sub }
+
+        .next-button {
+            background-color: hsla(192, 81%, 26%, 1);
+            color: white !important;
+            text-decoration: none !important;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-top: 1rem;
+            display: inline-block;
+            border: 1px solid hsla(192, 81%, 19%, 0.1);
+            font-weight: 500;
+            border-radius: 8px;
+        }
+
+        .next-button:hover {
+            background-color: hsla(192, 81%, 26%, 0.8)
+        }
+
+        .search-docs-form {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 0.5rem;
+        }
+
+        #search-btn {
+            font-size: 10px;
+        }
+
+        .search-docs {
+            max-width: 180px;
+            margin: 0 -2rem;
+        }
+
+        #search-docs-input {
+            font-size: 12px;
+            text-align: right;
+        }
+
+    </style>
+
+    <script>
+        /* Add bootstrap css class table to all markdown tables */
+        var tables = document.querySelectorAll('table');
+        for (let table of tables) {
+          table.classList.add('table', 'table-sm', 'table-striped');
+        }
+    </script>
+    <script>
+        /* Add css class active to current navigation item */
+        var activeNavItem = document.querySelector('.nav-link.secondary[href="' + location.pathname.split('/').pop() + '"]');
+        if (activeNavItem) { activeNavItem.classList.add('active'); }
+
+        /* Add css class to "Next: ..." links */
+        var links = document.querySelectorAll('a');
+        for (let link of links) {
+            if (link.innerText.indexOf('Next: ') === 0) {
+                link.classList.add('next-button');
+            }
+        }
+    </script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="instantclick.js" data-no-instant></script>
+    <script src="spoilify.js"></script>
+    <script data-no-instant>InstantClick.init(); spoilify(); InstantClick.on('change', spoilify);</script>
+  </body>
+</html>

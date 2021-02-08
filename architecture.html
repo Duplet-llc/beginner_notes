@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Duplet Guide</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="ihp-logo.svg"/>
+    <link rel="stylesheet" href="bootstrap.css" crossorigin="anonymous"/>
+  </head>
+  <body class="d-flex">
+        <nav class="navbar  navbar-light" id="mobile-navbar">
+            <a class="navbar-brand" href="#">
+                <span class="nav-logo">
+                    <span class="nav-logo-lambda">Best Practices Spec</span>
+                    <span class="nav-logo-name">Duplet</span>
+                </span>
+            </a>
+            <button class="navbar-toggler" type="button" onclick="document.querySelector('.nav-column').classList.toggle('visible')">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+
+        <div class="text-right nav-column navbar-collapse">
+            <div class="nav-logo">
+                <div class="nav-logo-lambda">Best Practices Spec</div>
+                <div class="nav-logo-name">Duplet</div>
+            </div>
+            <form action="https://duckduckgo.com" method="GET" class="search-docs-form">
+                <div class="search-docs input-group input-group-sm">
+
+                    <input type="hidden" name="sites" value="https://ihp.digitallyinduced.com"/>
+                    <input type="text" id="search-docs-input" class="form-control" name="q" placeholder="Search Duplet">
+                    <div class="input-group-append">
+                        <button id="search-btn" class="btn btn-outline-secondary btn-sm" type="submit">🔎</button>
+                    </div>
+                </div>
+            </form>
+
+            <nav class="nav flex-column primary-nav">
+                <a class="nav-link headline" href="index.html">Getting Started</a>
+                <a class="nav-link secondary" href="index.html">Intro</a>
+                <a class="nav-link secondary" href="installation.html">Installing Duplet</a>
+                <a class="nav-link secondary" href="your-first-project.html">Your First Project</a>
+
+                <a class="nav-link headline" href="architecture.html">The Basics</a>
+                <a class="nav-link secondary" href="architecture.html">Architecture</a>
+                <a class="nav-link secondary" href="naming-conventions.html">Naming Conventions</a>
+                <a class="nav-link secondary" href="routing.html">Routing</a>
+                <a class="nav-link secondary" href="controller.html">Controller & Actions</a>
+                <a class="nav-link secondary" href="view.html">Views</a>
+                <a class="nav-link secondary" href="hsx.html">HSX</a>
+                <a class="nav-link secondary" href="form.html">Forms</a>
+                <a class="nav-link secondary" href="validation.html">Validation</a>
+                <a class="nav-link secondary" href="session.html">Session</a>
+                <a class="nav-link secondary" href="javascript:alert('This cookie section is not ready yet')">Cookies</a>
+                <a class="nav-link secondary" href="scripts.html">Scripts</a>
+                <a class="nav-link secondary" href="debugging.html">Debugging</a>
+                <a class="nav-link secondary" href="logging.html">Logging</a>
+                <a class="nav-link secondary" href="testing.html">Testing</a>
+
+                <a class="nav-link secondary" href="editors.html">Editors & Tooling</a>
+
+
+
+                <a class="nav-link headline" href="mail.html">Advanced</a>
+                <a class="nav-link secondary" href="mail.html">Sending Mail</a>
+                <a class="nav-link secondary" href="jobs.html">Jobs</a>
+                <a class="nav-link secondary" href="updating.html">Updating Duplet</a>
+                <a class="nav-link secondary" href="auto-refresh.html">Auto Refresh</a>
+                <a class="nav-link secondary" href="package-management.html">Package Management</a>
+                <a class="nav-link secondary" href="deployment.html">Deployment</a>
+                <a class="nav-link secondary" href="design-goals.html">Duplet Design Goals</a>
+
+
+                <a class="nav-link headline" href="tailwindcss.html">Frontend</a>
+                <a class="nav-link secondary" href="tailwindcss.html">Tailwind CSS</a>
+                <a class="nav-link secondary" href="elm.html">Elm</a>
+                <a class="nav-link secondary" href="purescript.html">PureScript</a>
+                <a class="nav-link secondary" href="modal.html">Modal</a>
+                <a class="nav-link secondary" href="npm.html">Using NPM</a>
+                <a class="nav-link secondary" href="javascript:alert('The frontend section is coming soon')">Static Assets</a>
+                <a class="nav-link secondary" href="javascript:alert('The frontend section is coming soon')">Form Customization</a>
+
+                <a class="nav-link headline" href="database.html">Database</a>
+                <a class="nav-link secondary" href="database.html">Basics</a>
+                <a class="nav-link secondary" href="relationships.html">Relationships</a>
+                <a class="nav-link secondary" href="querybuilder.html">Query Builder</a>
+                <a class="nav-link secondary" href="database-migrations.html">Migrations</a>
+
+
+                <a class="nav-link headline" href="authentication.html">Auth</a>
+                <a class="nav-link secondary" href="authentication.html">Login & Logout</a>
+                <a class="nav-link secondary" href="authorization.html">Authorization</a>
+
+                <a class="nav-link headline" href="recipes.html">Recipes</a>
+                <a class="nav-link headline" href="troubleshooting.html">Troubleshooting</a>
+
+                <a class="nav-link headline" href="#">LINKS</a>
+                <a class="nav-link" href="https://github.com/digitallyinduced/ihp" target="_blank">GitHub</a>
+              
+                <a class="nav-link" href="https://ihp.digitallyinduced.com/api-docs/" target="_blank">API Docs</a>
+                <div class="mt-2">
+                    <a class="github-button" href="https://github.com/digitallyinduced/ihp" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" data-show-count="true" aria-label="Star digitallyinduced/ihp on GitHub">Star</a>
+                </div>
+            </nav>
+        </div>
+        <main>
+            <h1 id="architecture">Architecture</h1>
+<ul>
+<li>
+<a href="#directory-structure">Directory Structure</a>
+</li>
+<li>
+<a href="#faq">FAQ</a>
+<ul>
+<li>
+<a href="#where-to-place-a-function-i-want-to-use-in-all-my-views">Where to place a function I want to use in all my views?</a>
+</li>
+<li>
+<a href="#where-to-place-a-function-i-want-to-use-in-all-my-controllers">Where to place a function I want to use in all my controllers?</a>
+</li>
+<li>
+<a href="#where-to-place-a-custom-type">Where to place a custom type?</a>
+</li>
+<li>
+<a href="#next-to-my-main-web-application-im-also-building-an-admin-backend-application-where-to-place-it">Next to my main web application, I’m also building an admin back-end application. Where to place it?</a>
+</li>
+<li>
+<a href="#how-to-structure-my-css">How to structure my CSS?</a>
+<ul>
+<li>
+<a href="#pagespecific-css-rules">Page-specific CSS rules</a>
+</li>
+<li>
+<a href="#sass-webpack">SASS &amp; Webpack</a>
+</li>
+<li>
+<a href="#library-css">Library CSS</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#how-to-structure-my-javascript-code">How to structure my JavaScript Code?</a>
+<ul>
+<li>
+<a href="#pagespecific-javascript">Page-specific JavaScript</a>
+</li>
+<li>
+<a href="#webpack">Webpack</a>
+</li>
+<li>
+<a href="#library-javascript">Library JavaScript</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#where-to-place-static-images">Where to place static images?</a>
+</li>
+</ul>
+</li>
+</ul>
+<p>This section answers common questions regarding where to place your code. These recommendations are found to be working well at Duplet.</p>
+<p>In general, remember that all specific web app logic should stay in the <code>Web/</code> space. The <code>Application/</code> space is for sharing code across all your different applications. E.g. code shared between your web application and your admin back-end.</p>
+<h2 id="directory-structure">Directory Structure</h2>
+<table>
+<thead>
+<tr><th>File or Directory</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td>Config/</td><td></td></tr>
+<tr><td>Config/config.eex</td><td>Configuration for the framework and your application</td></tr>
+<tr><td>Config/nix/nixpkgs-config.nix</td><td>Configuration for the Nix package manager</td></tr>
+<tr><td>Config/nix/haskell-packages/</td><td>Custom Haskell dependencies can be placed here</td></tr>
+<tr><td>Application/</td><td>Your domain logic lives here</td></tr>
+<tr><td>Application/Schema.sql</td><td>Models and database tables are defined here</td></tr>
+<tr><td>Web/Controller</td><td>Web application controllers</td></tr>
+<tr><td>Web/View/</td><td>Web application HTML template files</td></tr>
+<tr><td>Web/types.ex</td><td>Central place for all web application types</td></tr>
+<tr><td>static/</td><td>Images, CSS, and JavaScript files</td></tr>
+<tr><td>.gitignore</td><td>List of files to be ignored by git</td></tr>
+<tr><td>mix.exs, Setup.hs</td><td>Config for the cabal package manager</td></tr>
+<tr><td>default.nix</td><td>Declares your app dependencies (like package.json for NPM or composer.json for PHP)</td></tr>
+<tr><td>Makefile</td><td>Default config file for the make build system</td></tr>
+</tbody>
+</table>
+<h2 id="faq">FAQ</h2>
+<h5 id="where-to-place-a-function-i-want-to-use-in-all-my-views">Where to place a function I want to use in all my views?</h5>
+<p>If the function is only used in a single application and is a building block for your layout, place it in <code>DupletWeb/templates/layout/layout.html.eex</code>. The module is already imported in all your views (just don’t forget to add the function to the export list).</p>
+<p>If the function is used across multiple applications or more like a helper function, place it in <code>DupletWeb/View/view.ex</code>. This module is also already included in your view files.</p>
+<h5 id="where-to-place-a-function-i-want-to-use-in-all-my-controllers">Where to place a function I want to use in all my controllers?</h5>
+<p>Place it in <code>DupletWeb/Controller/controller.ex</code>. This module is already imported into your controllers.</p>
+<h5 id="where-to-place-a-custom-type">Where to place a custom type?</h5>
+<p>Place it in <code>DupletWeb/types.ex</code>.</p>
+<h5 id="next-to-my-main-web-application-im-also-building-an-admin-backend-application-where-to-place-it">Next to my main web application, I’m also building an admin back-end application. Where to place it?</h5>
+<p>A Duplet project can consist of multiple applications. Run <code>new-application admin</code> inside a <code>nix-shell</code> to generate a new admin application. The logic for the new application is located in the <code>Admin/</code> directory. You can find it on the web at <code>http://localhost:8000/admin/</code> (all actions are prefixed with <code>/admin/</code>).</p>
+<p> Store under an umbrella app strucure or in the same directory as DupletWeb as a subfolder of Duplet</p>
+<h5 id="how-to-structure-my-css">How to structure my CSS?</h5>
+<p>CSS files, as all your other static assets, should be placed in the <code>static</code> directory.</p>
+<p>Create a <code>static/app.css</code>. In there use CSS imports to import your other style sheets. An example <code>app.css</code> could look like this:</p>
+<div class="source-code"><pre><code class="language-css"><span class="im">@import</span><span> </span><span class="st">&quot;/layout.css&quot;</span><span class="op">;</span>
+<span class="im">@import</span><span> </span><span class="st">&quot;/widget.css&quot;</span><span class="op">;</span>
+<span class="im">@import</span><span> </span><span class="st">&quot;/form.css&quot;</span><span class="op">;</span>
+<span class="im">@import</span><span> </span><span class="st">&quot;/button.css&quot;</span><span class="op">;</span>
+<span class="im">@import</span><span> </span><span class="st">&quot;/users.css&quot;</span><span class="op">;</span>
+</code></pre></div>
+<h6 id="pagespecific-css-rules">Page-specific CSS rules</h6>
+<p>Place page-specific CSS used by e.g. views of the <code>Web.Controller.Users</code> controller in <code>users.css</code>. Use <a href="https://ihp.digitallyinduced.com/api-docs/IHP-ViewSupport.html#v:currentViewId">currentViewId</a> to scope your CSS rules to the view.</p>
+<p>Given the view:</p>
+<div class="source-code"><pre><code class="language-haskell"><span class="kw">module</span><span> </span><span class="cr">Web.View.Projects.Show</span><span> </span><span class="kw">where</span><span>
+
+</span><span class="va">render</span><span> </span><span class="sy">=</span><span> </span><span class="sy">[hsx|
+    &lt;div id={currentViewId}&gt;
+        &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;/div&gt;
+|]</span><span>
+</span></code></pre></div>
+<p>This will render like</p>
+<div class="source-code"><pre><code class="language-html"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;projects-show&quot;</span><span class="kw">&gt;</span>
+<span>    </span><span class="kw">&lt;h1&gt;</span><span>Hello World!</span><span class="kw">&lt;/h1&gt;</span>
+<span class="kw">&lt;/div&gt;</span>
+<span>`</span>
+</code></pre></div>
+<p>So in your <code>projects.css</code> you can just do rules like</p>
+<div class="source-code"><pre><code class="language-css"><span class="pp">#projects-show</span><span> h1 {</span>
+<span>    </span><span class="kw">color</span><span>: </span><span class="cn">blue</span><span class="op">;</span>
+<span>}</span>
+</code></pre></div>
+<h6 id="sass-webpack">SASS &amp; Webpack</h6>
+<p>We discourage the use of tools like SASS or Webpack because they have too much overhead.</p>
+<h6 id="library-css">Library CSS</h6>
+<p>CSS files from external libraries or components should be placed in <code>static/vendor/</code>.</p>
+<h5 id="how-to-structure-my-javascript-code">How to structure my JavaScript Code?</h5>
+<p>JavaScript files, as well as your other static assets, should be placed in the <code>static</code> directory.</p>
+<p>In general, we follow an approach where most of the business logic resides on the Haskell server. Only for small interactions, or client-side GUI niceness, we try to use a small isolated bit of JavaScript.</p>
+<p>Your global, non-page specific, JavaScript code can be placed in <code>app.js</code>.</p>
+<p>E.g. the <code>app.js</code> could look like this:</p>
+<div class="source-code"><pre><code class="language-javascript"><span class="fu">$</span><span>(</span><span class="kw">function</span><span> () {</span>
+<span>    </span><span class="fu">initNavbarEffects</span><span>()</span><span class="op">;</span>
+<span>})</span><span class="op">;</span>
+
+<span class="kw">function</span><span> </span><span class="fu">initNavbarEffects</span><span>() {</span>
+<span>    </span><span class="co">// ...</span>
+<span>}</span>
+</code></pre></div>
+<p>In your <code>Web.View.Layout</code> just import the <code>app.js</code>:</p>
+<div class="source-code"><pre><code class="language-html"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;/app.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+</code></pre></div>
+<h6 id="pagespecific-javascript">Page-specific JavaScript</h6>
+<p>Place page-specific JavaScript used by e.g. views of the <code>Web.Controller.Users</code> controller in the <code>users.js</code>.</p>
+<p>In the views, just import the JavaScript with <code>&lt;script src=&quot;/users.js&quot;&gt;&lt;/script&gt;</code>.</p>
+<h6 id="webpack">Webpack</h6>
+<p>We discourage the use of Webpack or any other bundler because they have too much overhead. Of course, this advice only applies if you follow the approach to use as little JavaScript as possible.</p>
+<h6 id="library-javascript">Library JavaScript</h6>
+<p>JavaScript files from external libraries or components should be placed in <code>static/vendor/</code>. For simplicity, it might make sense to just download the JavaScript bundle of the library you want to use, and then just commit it into git instead of using NPM.</p>
+<p>For more complex use-cases with lots of JavaScript, you should not follow this advice and just use NPM instead.</p>
+<p> for reference refer to vite.js which is included in every template (enables live reloading) </p>
+<h5 id="where-to-place-static-images">Where to place static images?</h5>
+<p>Place your images in the <code>static</code> folder. We recommend using SVG images.</p>
+
+        </main>
+
+
+
+    <style>
+        html, body {
+            min-height: 100%;
+            color: #073642;
+        }
+
+        * {
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            scroll-behavior: smooth;
+        }
+
+        .nav-logo-lambda, .nav-logo-name {
+            display: inline-block;
+        }
+
+        .nav-logo-lambda {
+            font-size: 4rem;
+            font-weight: 600;
+        }
+
+        .nav-logo-name {
+            font-size: 2rem;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            color: #073642;
+        }
+
+        .nav-column {
+            background-color: hsla(192, 81%, 5%, 0.04);
+            padding-top: 2rem;
+            position: sticky;
+            height: 100vh;
+            top: 0;
+        }
+
+        main {
+            padding: 1rem;
+            width: 100%;
+            margin-top: 70px;
+        }
+
+        .primary-nav .nav-link {
+            font-size: 12px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-right: 0;
+            transition: all 0.05s;
+        }
+
+        .primary-nav .nav-link.headline {
+            font-weight: 700;
+            color: #073642;
+            text-transform: uppercase;
+            margin-top: 20px;
+
+        }
+
+        .primary-nav .nav-link.secondary {
+            font-weight: 500;
+            color: hsla(192, 81%, 26%, 0.8);
+            text-transform: initial;
+        }
+
+        .primary-nav .nav-link.secondary:hover {
+            color: #073642;
+        }
+
+        .primary-nav .nav-link.secondary.active {
+            color: #268BD2;
+        }
+
+        a {
+            color: hsla(192, 81%, 26%, 1);
+        }
+
+        h1, h2, h3, h4, h5 { color: #073642; }
+
+        .source-code {
+          background-color: #002b36;
+
+          border-radius: 3px;
+        }
+        .language-haskell, .language-bash, .language-sql, .language-html, .language-nix, .language-css, .language-javascript, .language-makefile {
+          color: #839496 !important;
+          display: block;
+          padding: 1rem;
+        }
+
+        code {
+          background-color: rgba(0, 43, 54, 0.11);
+          color: #002b36 !important;
+        }
+
+        code .cr {
+          color: #93a1a1 !important;
+          font-weight: bold;
+        }
+
+        code .kw, code .kw, code .kw { color: #859900; }
+        code .st { color: #2aa198; }
+
+        pre { overflow: scroll; }
+
+        img { max-width: 100%; }
+
+        /* TOC */
+        main > h1 + ul { padding-left: 0; list-style: none; padding-left: 0; }
+        main > h1 + ul a {
+            color: #839496;
+            font-size: 12px;
+        }
+
+        main h2, main h3, main h4 { margin-top: 4rem; }
+        main h2 + h3 { margin-top: 0 }
+
+        #mobile-navbar {
+            position: absolute;
+            width: 100%;
+        }
+
+        .nav-column {
+            display: none;
+            transition: all 0.2s;
+            padding-right: 20px;
+            overflow-y: scroll;
+        }
+        .nav-column.visible {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: fit-content;
+            margin-top: 70px;
+            padding-top: 0;
+        }
+        .nav-column.visible, #mobile-navbar {
+            background-color: #f5f6f6;
+        }
+        .nav-column.visible .nav-logo { display: none }
+
+        #mobile-navbar .nav-logo .nav-logo-lambda { font-size: 2rem; }
+        #mobile-navbar .nav-logo .nav-logo-name { font-size: 1rem; }
+
+        @media (min-width: 768px) {
+            #mobile-navbar { display: none }
+            .nav-column {
+                display: block;
+                width: 25%;
+                max-width: 25%;
+                padding-right: 4rem;
+            }
+
+            main {
+                width: 75%;
+                max-width: 800px;
+                padding: 4rem;
+            }
+        }
+
+        summary h3 { vertical-align: sub }
+
+        .next-button {
+            background-color: hsla(192, 81%, 26%, 1);
+            color: white !important;
+            text-decoration: none !important;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-top: 1rem;
+            display: inline-block;
+            border: 1px solid hsla(192, 81%, 19%, 0.1);
+            font-weight: 500;
+            border-radius: 8px;
+        }
+
+        .next-button:hover {
+            background-color: hsla(192, 81%, 26%, 0.8)
+        }
+
+        .search-docs-form {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 0.5rem;
+        }
+
+        #search-btn {
+            font-size: 10px;
+        }
+
+        .search-docs {
+            max-width: 180px;
+            margin: 0 -2rem;
+        }
+
+        #search-docs-input {
+            font-size: 12px;
+            text-align: right;
+        }
+
+    </style>
+
+    <script>
+        /* Add bootstrap css class table to all markdown tables */
+        var tables = document.querySelectorAll('table');
+        for (let table of tables) {
+          table.classList.add('table', 'table-sm', 'table-striped');
+        }
+    </script>
+    <script>
+        /* Add css class active to current navigation item */
+        var activeNavItem = document.querySelector('.nav-link.secondary[href="' + location.pathname.split('/').pop() + '"]');
+        if (activeNavItem) { activeNavItem.classList.add('active'); }
+
+        /* Add css class to "Next: ..." links */
+        var links = document.querySelectorAll('a');
+        for (let link of links) {
+            if (link.innerText.indexOf('Next: ') === 0) {
+                link.classList.add('next-button');
+            }
+        }
+    </script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="instantclick.js" data-no-instant></script>
+    <script src="spoilify.js"></script>
+    <script data-no-instant>InstantClick.init(); spoilify(); InstantClick.on('change', spoilify);</script>
+  </body>
+</html>
